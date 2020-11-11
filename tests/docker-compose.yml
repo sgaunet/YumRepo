@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  WWW:
+    image: sgaunet/yumrepo:latest
+    restart: always
+    env_file:
+      - conf.env
+    ports:
+      - "8000:80"     # Nginx
+      - "9001:9001"   # supervisord IHM
+    volumes:
+      - ./example:/usr/share/nginx/html
