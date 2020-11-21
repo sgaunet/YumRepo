@@ -11,6 +11,12 @@ then
     sed -i "s#;password=thepassword#password=${PASSWORD_UI}#g"  /etc/supervisord.conf
 fi
 
+if [ -z "${REPODATA_FOLDER}" ]
+then
+    echo "REPODATA_FOLDER must be specified"
+    exit 1
+fi
+
 > /etc/nginx/.htpasswd
 
 if [ ! -z "$LST_USERS_PASSWORDS" ]
