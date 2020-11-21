@@ -8,7 +8,7 @@ do
 
     # List directories that contain rpm files
     # and for each directory, launch createrepo
-    find tests/ -type f -name *.rpm -exec dirname {} \; | sort -u  | while read rpm_dir
+    find /usr/share/nginx/html/ -type d -name RPMS | while read rpm_dir
     do
         echo "createrepo ${rpm_dir}"
         createrepo ${rpm_dir}
