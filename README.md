@@ -1,7 +1,9 @@
 # YumRepo
 
-YumRepo launch a Nginx WebWserver with a basic Authentication to expose private yum repository.
+YumRepo launch a Nginx Webserver with a basic Authentication to expose private yum repository.
 The repodata of yum repositories is kept updated as soon as there is a new file in the directory.
+
+The createrepo command is launched only for directories named RPMS (to be mounted /usr/share/nginx/html)
 
 # Run
 
@@ -17,6 +19,7 @@ LST_USERS_PASSWORDS=user1:user1 user2:user2
 * PASSWORD_UI: password to access to supervisord
 * LST_USERS_PASSWORDS: List of couple login:password that can access to Nginx
 
+Set LST_USERS_PASSWORDS as empty to avoid the authentication.
 
 docker-compose.yml:
 
