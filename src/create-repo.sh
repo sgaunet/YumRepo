@@ -6,13 +6,7 @@ function createYumRepo
     # and for each directory, launch createrepo
     find /usr/share/nginx/html/ -type d -name ${REPODATA_FOLDER} | while read rpm_dir
     do
-        if [ -z "${IN}" ]
-        then
-            repodata="${rpm_dir}/../"
-        else
-            repodata="${rpm_dir}"
-        fi
-
+        repodata="${rpm_dir}"
         echo "`date` - createrepo ${repodata}"
         createrepo ${repodata}
     done
@@ -42,6 +36,8 @@ function isThisTheEndOfCopy
 }
 
 endOfChanges &
+
+createYumRepo
 
 while [ "1" = "1" ]
 do
